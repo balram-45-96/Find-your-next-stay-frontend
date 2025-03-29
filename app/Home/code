@@ -1,0 +1,544 @@
+<div className="navbar-container">
+<p className="logo">
+  <Link
+    href="/"
+    style={{
+      fontSize: '55px',
+      border: '1px solid black',
+      fontFamily: 'serif',
+      color: '#3333e9a6'
+    }}
+  >
+    Find your next stay
+  </Link>
+</p>
+<nav className="navbar-nav navbar-cart-icon">
+  <ul
+    style={{
+      marginTop: "25px",
+      fontSize: "20px",
+    }}
+  >
+    <li>
+      <Link href="/"> <Button style={{ backgroundColor: "white" }}>Home</Button></Link>
+    </li>
+    {/* <li>
+    <Link href="/about">About</Link>
+  </li> */}
+    {isAdmin && isAdmin && (
+      <li>
+        <Link href="/product"> <Button style={{ backgroundColor: "white" }}>Product Lists</Button>  </Link>
+      </li>
+    )}
+
+    {isAdmin && isAdmin && (
+      <li>
+        <Link href="/users"><Button style={{ backgroundColor: "white" }}>User Lists</Button> </Link>
+      </li>
+    )}
+
+    {!isLogin && (
+      <li>
+        {" "}
+        <Link href="" onClick={setIsModalOpen} disabled={isLogin}>
+          <Button style={{ backgroundColor: "white" }}>Register</Button>
+        </Link>{" "}
+      </li>
+    )}
+
+    {!isLogin && (
+      <li>
+        {" "}
+        <Link href="" onClick={setIsModalOpenIn} disabled={isLogin}>
+          {" "}
+          <Button style={{ backgroundColor: "white" }}>Sign in</Button>
+        </Link>{" "}
+      </li>
+    )}
+
+    {isLogin && (
+      <li>
+        <Link href="/profile">
+          {" "}
+          <UserSwitchOutlined />
+        </Link>
+      </li>
+    )}
+  </ul>
+</nav>
+
+{/* <button type="button" className="" >
+  <AiOutlineShopping />
+
+</button> */}
+<SingUp isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+<SingIn isModalOpen={isModalOpenIn} setIsModalOpen={setIsModalOpenIn} />
+</div>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <header
+          style={{
+            margin: "10px 0px",
+          }}
+        >
+          {/* <Image
+            width={500}
+            height={600}
+            alt="example"
+            src="https://mediacdn.99acres.com/media1/22301/11/446031684M-1694967399717.jpg"
+          /> */}
+          <h1
+            style={{
+              fontSize: "24px",
+              fontFamily: "initial",
+              color: "cadetblue",
+            }}
+          >
+            Find your next stay Search low prices on hotels, homes and much
+            more...
+          </h1>
+          <div>
+            <Form onFinish={onFinish} form={form}>
+              <Row gutter={[16, 16]}>
+                <Col span={5}>
+                  <Form.Item
+                    name="country"
+                    style={{
+                      borderStyle: "revert !important",
+                      borderColor: "#8989c3",
+                      borderWidth: "3px",
+                      padding: "2px",
+                      borderRadius: "6px",
+                    }}
+                  >
+                    <Select
+                      className="filterclassName"
+                      placeholder="Select a country"
+                      style={{
+                        height: "45px",
+                      }}
+                      showSearch
+                      options={countryList()
+                        .getData()
+                        .map((item) => {
+                          return {
+                            value: item.value,
+                            label: item.label,
+                          };
+                        })}
+                    />
+                  </Form.Item>
+                </Col>
+                <Col span={5}>
+                  <Form.Item name="city">
+                    <Input
+                      className="filterclassName"
+                      placeholder="Enter a city"
+                      style={{
+                        fontSize: "25px",
+                        fontFamily: "cursive",
+                        borderStyle: "revert",
+                        borderColor: "#8989c3",
+                        borderWidth: "3px",
+                      }}
+                    />
+                  </Form.Item>
+                </Col>
+
+                <Col span={5}>
+                  <Form.Item name="area">
+                    <Input
+                      className="filterclassName"
+                      placeholder="Enter  a area"
+                      style={{
+                        fontSize: "25px",
+                        fontFamily: "cursive",
+                        borderStyle: "revert",
+                        borderColor: "#8989c3",
+                        borderWidth: "3px",
+                      }}
+                    />
+                  </Form.Item>
+                </Col>
+                <Col span={5}>
+                  <Form.Item name="pinCode">
+                    <Input
+                      className="filterclassName"
+                      placeholder="Enter a pin code"
+                      style={{
+                        fontSize: "25px",
+                        fontFamily: "cursive",
+                        borderStyle: "revert",
+                        borderColor: "#8989c3",
+                        borderWidth: "3px",
+                      }}
+                    />
+                  </Form.Item>
+                </Col>
+                <Col>
+                  <Row gutter={[16, 16]}>
+                    <Col span={12}>
+                      <Form.Item>
+                        <Button
+                          // className="filterclassName btn-primary"
+                          style={{
+                            backgroundColor: "white",
+                            height: "49px",
+                            color: "black",
+                            fontSize: "25px",
+                            fontFamily: "cursive",
+                            borderStyle: "revert",
+                            borderColor: "#8989c3",
+                            borderWidth: "3px",
+                          }}
+                          type="primary"
+                          htmlType="submit"
+                        >
+                          Search
+                        </Button>
+                      </Form.Item>
+                    </Col>
+                    <Col span={12}>
+                      <Form.Item>
+                        <Button
+                          style={{
+                            backgroundColor: "white",
+                            height: "49px",
+                            color: "black",
+                            fontSize: "25px",
+                            fontFamily: "cursive",
+                            borderStyle: "revert",
+                            borderColor: "#8989c3",
+                            borderWidth: "3px",
+                          }}
+                          //  className="filterclassName btn-primary"
+                          onClick={() => reset()}
+                        >
+                          Reset
+                        </Button>
+                      </Form.Item>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Form>
+          </div>
+        </header>
+
+
+
+        '''''''''''''''''''''''''
+
+
+
+        {/* <Card
+          hoverable
+          style={{ width: "500px" }}
+          cover={
+            <Image
+              width={500}
+              height={600}
+              alt="example"
+              src={product.image}
+            />
+          }
+        >
+          <Rate allowHalf defaultValue={2.5} style={{
+            marginLeft: '70%',
+            display: 'flex'
+          }} />
+          <h1 className="product-price">{product.name}</h1>
+          <samp className="product-price">Address : </samp>
+          <samp>{product?.country} india</samp>
+          <samp>{product?.city} indore</samp>
+          <samp>{product?.area} bholaram</samp>
+          <samp>{product?.pinCode} 1345</samp>
+          <p className="">{truncateWords(product.description, 5)}..</p>
+          <Row gutter={[0, 0]}>
+            <Col span={20}>
+              <div className="product-price">INR ₹{product.price}</div>
+            </Col>
+            <Col span={3}>
+              <div className="product-price"> {product?.type}</div>
+            </Col>
+          </Row>
+          <br />
+          <Row gutter={[0, 0]}>
+            <Col span={19}>
+              <Button className="btn-primary" onClick={() => {
+                if (isLogin) {
+                  router.push('/new-page');
+                  localStorage.setItem('product', JSON.stringify(product));
+                } else {
+                  api.error({
+                    message: `Error`,
+                    description:
+                      'Sing In please !',
+                    placement: 'top',
+                  });
+                }
+              }}>View Details</Button>
+            </Col>
+            <Col span={4}>
+              <Button className="btn-primary btn-sm" onClick={() => {
+                if (isLogin) {
+                  bookNow(product.id)
+                } else {
+  
+                  api.error({
+                    message: `Error`,
+                    description:
+                      'Sing In please !',
+                    placement: 'top',
+                  });
+                }
+              }}> Book Now </Button>
+            </Col>
+          </Row>
+        </Card> */}
+        {/* <Card className="CardProductList" > */}
+        <Row gutter={[16, 16]}>
+          <Col span={9}>
+            <Image
+              width={665}
+              height={620}
+              alt="example"
+              src={product.image}
+              style={{ borderRadius: "5px" }}
+            />
+          </Col>
+  
+          <Col span={15}>
+            <Card className="ProductCard" style={{ height: "100%" }}>
+              <Row
+                gutter={16}
+                style={{
+                  display: "contents",
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "rgba(235, 235, 235, 0.82)",
+                }}
+              >
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "10%",
+                    left: "10%",
+                    fontSize: "158px",
+                    color: "#8080801a",
+                    pointerEvents: "none",
+                    fontFamily: "cursive",
+                  }}
+                >
+                  Find your next stay
+                </span>
+                <Col>
+                  <h1
+                    style={{
+                      fontSize: "30px",
+                      fontFamily: "ui-rounded",
+                      textDecoration: "underline",
+                      textDecorationColor: "#e041418f",
+                      textDecorationThickness: "2px",
+                    }}
+                  >
+                    Get Up to 25% OFF*
+                  </h1>
+                </Col>
+                <Col
+                  span={24}
+                  align="end"
+                  justify="end"
+                  style={
+                    {
+                      // height: '50px'
+                    }
+                  }
+                >
+                  <Rate
+                    allowHalf
+                    defaultValue={2.5}
+                    disabled
+                    style={{
+                      // marginLeft: '70%',
+                      // display: 'flex'
+  
+                      fontSize: "40px",
+                      fontFamily: "ui-monospace",
+                    }}
+                  />
+                </Col>
+  
+                <Col
+                  span={24}
+                  align="center"
+                  justify="center"
+                  style={
+                    {
+                      // height: '100px',
+                    }
+                  }
+                >
+                  <h1
+                    className="product-price"
+                    style={{
+                      fontSize: "35px",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {product.name}
+                  </h1>
+                </Col>
+                <Col
+                  span={24}
+                  align="start"
+                  justify="center"
+                  style={{
+                    // height: '50px'
+                    marginTop: "2%",
+                    marginBottom: "2%",
+                  }}
+                >
+                  <samp
+                    style={{
+                      fontSize: "25px",
+                    }}
+                  >
+                    <samp className="product-price">Address : </samp>
+                    <samp>{product?.country} </samp>
+                    <samp>{product?.city} </samp>
+                    <samp>{product?.area} </samp>
+                    <samp>{product?.pinCode} </samp>
+                  </samp>
+                </Col>
+                <Col
+                  span={24}
+                  align="center"
+                  justify="center"
+                  style={{
+                    height: "200px",
+                  }}
+                >
+                  <h1
+                    className=""
+                    style={{
+                      fontSize: "20px",
+                    }}
+                  >
+                    {" "}
+                    <samp className="product-price">Description : </samp>
+                    {product.description}
+                  </h1>
+                </Col>
+                <Col
+                  span={24}
+                  align="start"
+                  justify="center"
+                  style={{
+                    height: "90px",
+                  }}
+                >
+                  <Row gutter={[0, 0]}>
+                    <Col span={20}>
+                      <div
+                        className="product-price"
+                        style={{
+                          fontSize: "25px",
+                        }}
+                      >
+                        INR ₹{product.price}
+                      </div>
+                    </Col>
+                    <Col span={4} align="end" justify="end">
+                      <div
+                        className="product-price"
+                        style={{
+                          fontSize: "25px",
+                        }}
+                      >
+                        {" "}
+                        {product?.type}
+                      </div>
+                    </Col>
+                  </Row>
+                </Col>
+  
+                <Col>
+                  <Row gutter={[0, 0]}>
+                    <Col span={12}>
+                      <Image
+                        width={50}
+                        height={50}
+                        alt="example"
+                        src="/download (2).jpeg"
+                        preview={false}
+                      />
+                      <Image
+                        width={90}
+                        height={50}
+                        alt="example"
+                        src="/download.png"
+                        preview={false}
+                      />
+                      <Image
+                        width={50}
+                        height={50}
+                        alt="example"
+                        src="/download.jpeg"
+                        preview={false}
+                      />
+                    </Col>
+                    <Col span={12} align="end" justify="end">
+                      <Button
+                        className=""
+                        onClick={() => {
+                          if (isLogin) {
+                            bookNow(product.id);
+                          } else {
+                            api.error({
+                              message: `Error`,
+                              description: "Sing In please !",
+                              placement: "top",
+                            });
+                          }
+                        }}
+                        style={{
+                          backgroundColor: "white",
+                          height: "49px",
+                          color: "black",
+                          fontSize: "25px",
+                          fontFamily: "cursive",
+                          borderStyle: "revert",
+                          borderColor: "#8989c3",
+                          borderWidth: "3px",
+                        }}
+                      >
+                        {" "}
+                        Book Now{" "}
+                      </Button>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Card>
+          </Col>
+        </Row>
+        {/* </Card> */}
